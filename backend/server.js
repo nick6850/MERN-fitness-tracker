@@ -7,6 +7,7 @@ const router = require("./router/workoutRoutes");
 const app = express();
 app.use(express.json());
 app.use("/workouts", router);
+app.use(cors());
 
 mongoose
   .connect(process.env.API_KEY)
