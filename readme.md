@@ -1,6 +1,8 @@
 # Fitness Tracker
 
-<img src="./screenshot.png" alt="Screenshot" width="400">
+<div style="text-align:center;">
+  <img src="./screenshot.png" alt="Screenshot" width="400">
+</div>
 
 ## Overview
 
