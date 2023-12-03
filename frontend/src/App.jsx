@@ -1,7 +1,7 @@
 import React from "react";
-
+import AllWorkouts from "./components/AllWorkouts";
 function App() {
-  return <div>App</div>;
+  return <AllWorkouts />;
 }
 
 export default App;

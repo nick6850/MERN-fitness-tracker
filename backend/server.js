@@ -3,11 +3,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const router = require("./router/workoutRoutes");
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
-app.use("/workouts", router);
 app.use(cors());
+app.use("/workouts", router);
 
 mongoose
   .connect(process.env.API_KEY)

@@ -12,6 +12,7 @@ export const fetchWorkouts = createAsyncThunk(
   async () => {
     const res = await axios("http://localhost:3001/workouts/all");
     const data = await res.data;
+    console.log(data);
     return data;
   }
 );
