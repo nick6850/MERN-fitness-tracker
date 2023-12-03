@@ -1,6 +1,6 @@
 # Fitness Tracker
 
-![Screenshot](./screenshot.png)
+<img src="./screenshot.png" alt="Screenshot" width="400">
 
 ## Overview
 
