@@ -1,6 +1,6 @@
 # Fitness Tracker
 
-(./screenshot.png)
+![Screenshot](./screenshot.png)
 
 ## Overview
 
