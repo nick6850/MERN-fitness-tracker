@@ -12,7 +12,6 @@ export const fetchWorkouts = createAsyncThunk(
   async () => {
     const res = await axios("http://localhost:3001/workouts/all");
     const data = await res.data;
-    console.log(data);
     return data;
   }
 );
@@ -20,7 +19,7 @@ export const fetchWorkouts = createAsyncThunk(
 export const postNewWorkout = createAsyncThunk(
   "workouts/postNewWorkout",
   async (newWorkout) => {
-    const res = await axios.post(newWorkout);
+    const res = await axios.post("http://localhost:3001/workouts/", newWorkout);
     const data = await res.data;
     return data;
   }
@@ -28,10 +27,10 @@ export const postNewWorkout = createAsyncThunk(
 
 export const updateWorkout = createAsyncThunk(
   "workouts/updateWorkout",
-  async ({ id, updatedData }) => {
+  async ({ _id, workoutData }) => {
     const res = await axios.put(
-      `http://localhost:3001/workouts/${id}`,
-      updatedData
+      `http://localhost:3001/workouts/${_id}`,
+      workoutData
     );
     const data = await res.data;
     return data;
@@ -42,8 +41,7 @@ export const deleteWorkout = createAsyncThunk(
   "workouts/deleteWorkout",
   async (id) => {
     const res = await axios.delete(`http://localhost:3001/workouts/${id}`);
-    const data = await res.data;
-    return data;
+    return id;
   }
 );
 
@@ -95,7 +93,7 @@ export const workoutsSlice = createSlice({
     builder.addCase(deleteWorkout.fulfilled, (state, action) => {
       state.isLoading = false;
       state.workouts = state.workouts.filter(
-        (workout) => workout._id != action.payload._id
+        (workout) => workout._id != action.payload
       );
     });
     builder.addCase(deleteWorkout.rejected, (state, action) => {
