@@ -1,22 +1,21 @@
 const router = require("express").Router();
-const workout = require("../modules/workoutModule");
+const {
+  getAllWorkouts,
+  postNewWorkout,
+  updateWorkout,
+  deleteWorkout,
+} = require("../controllers/workoutsController");
+
 // get all workouts
-router.get("/all", (req, res) => res.json({ message: "success" }));
+router.get("/all", getAllWorkouts);
 
 // post a new workout
-router.post("/", async (req, res) => {
-  const { name, duration, date } = req.body;
-  if (!name || !duration || !date) {
-    res.status(400).json({ error: "One of the fields is not filled" });
-    return;
-  }
+router.post("/", postNewWorkout);
 
-  try {
-    const newWorkout = await workout.create({ name, duration, date });
-    res.status(200).json(newWorkout);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
+// edit a workout
+router.put("/:id", updateWorkout);
+
+// delete a workout
+router.delete("/:id", deleteWorkout);
 
 module.exports = router;
