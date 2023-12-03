@@ -18,3 +18,4 @@ A full-stack fitness tracker project to sharpen my development skills. Built wit
 - **Express.js:** Backend framework for a robust server.
 - **Mongoose:** Object data modeling library for MongoDB.
 - **React:** Frontend library for dynamic and responsive UI.
+- **Redux:** A predictable state container for JavaScript apps
